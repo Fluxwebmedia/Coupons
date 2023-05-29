@@ -1,4 +1,4 @@
-var elms = document.querySelectorAll("clicked");
+var elms = document.querySelectorAll("[id='clicked']");
 
 for(var i = 0; i < elms.length; i++) 
 elms[i].onclick = function(){
