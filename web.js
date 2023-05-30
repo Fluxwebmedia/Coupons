@@ -1,98 +1,98 @@
 var elms = document.querySelectorAll("[id='clicked']");
 
-for(var i = 0; i < elms.length; i++) 
+for (var i = 0; i < elms.length; i++) {
 
-elms[i].onclick = function(){
+  elms[i].onclick = function() {
 
-let category = this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.value;
+    var category = this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.value;
 
-let off = this.previousElementSibling.previousElementSibling.previousElementSibling.value;
+    var off = this.previousElementSibling.previousElementSibling.previousElementSibling.value;
 
-let amount = this.previousElementSibling.previousElementSibling.value;
+    var amount = this.previousElementSibling.previousElementSibling.value;
 
-let uses = this.previousElementSibling.value;
+    var uses = this.previousElementSibling.value;
 
-console.log(off);
+    console.log(off);
 
-console.log(amount);
+    console.log(amount);
 
-console.log (uses);
+    console.log(uses);
 
-console.log(category);
+    console.log(category);
 
-$('.overlaycontent').show();
+    $('.overlaycontent').show();
 
-var curHeight = $('.overlaycontent').height();
+    var curHeight = $('.overlaycontent').height();
 
-$('.overlaycontent').css('height', 'auto');
+    $('.overlaycontent').css('height', 'auto');
 
-var autoHeight = $('.overlaycontent').height();
+    var autoHeight = $('.overlaycontent').height();
 
-$('.overlaycontent').height(curHeight).animate({height: autoHeight}, 500);
+    $('.overlaycontent').height(curHeight).animate({ height: autoHeight }, 500);
 
-$('.overlay').show();
+    $('.overlay').show();
 
-$('.overlaycenter h2').html(off + amount + ' OFF');
+    $('.overlaycenter h2').html(off + amount + ' OFF');
 
-$('.overlaycenter p').html(off + amount + ' OFF Your Next Checkout with '+category);
+    $('.overlaycenter p').html(off + amount + ' OFF Your Next Checkout with ' + category);
 
-$('.overlaycenter span').html('Verified 1 day ago • ' +uses + ' Uses Today');
+    $('.overlaycenter span').html('Verified 1 day ago • ' + uses + ' Uses Today');
 
-let last = category.substring(0, 3);
+    var last = category.substring(0, 3);
 
-console.log(last);
+    console.log(last);
 
-$('.cpn').html(last + '****');
+    $('.cpn').html(last + '****');
+
+  };
 
 }
 
-$(".cpnbtn").click(function(){
+$(".cpnbtn").click(function() {
 
-    $(".cpn").hide();
+  $(".cpn").hide();
 
-    $(".cpnbtn").hide();
+  $(".cpnbtn").hide();
 
-    $("#progress").show();
+  $("#progress").show();
 
-    let items = document.querySelectorAll('.progress-item');
+  var items = document.querySelectorAll('.progress-item');
 
-const counters = Array(items.length);
+  var counters = Array(items.length);
 
-const intervals = Array(items.length);
+  var intervals = Array(items.length);
 
-counters.fill(0);
+  counters.fill(0);
 
-items.forEach((number,index) => {
+  items.forEach(function(number, index) {
 
-  intervals[index] = setInterval(() => {
+    intervals[index] = setInterval(function() {
 
-          if(counters[index] == parseInt(number.dataset.num)){
+      if (counters[index] === parseInt(number.dataset.num)) {
 
-              clearInterval(intervals[index]);
+        clearInterval(intervals[index]);
 
-          }else{
+      } else {
 
-              counters[index] += 1;
+        counters[index] += 1;
 
-              number.style.background = "conic-gradient(#990099 calc(" + counters[index] + "%), #d9d9d9 0deg)";
+        number.style.background = "conic-gradient(#990099 calc(" + counters[index] + "%), #d9d9d9 0deg)";
 
-              number.setAttribute('data-value', counters[index] + "%");
+        number.setAttribute('data-value', counters[index] + "%");
 
-              number.innerHTML = counters[index] + "%";
+        number.innerHTML = counters[index] + "%";
 
-          }
+      }
 
-  }, 150);
-
- });
-
-    setTimeout(function(){
-
-        og_load();
-
-    },14000)
+    }, 150);
 
   });
 
+  setTimeout(function() {
 
-    
+    og_load();
+
+  }, 14000);
+
+});
+
